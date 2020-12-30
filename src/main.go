@@ -9,27 +9,31 @@ import (
 )
 
 const (
-	width  = 500
-	height = 500
+	windowWidth  = 500
+	windowHeight = 500
 )
 
 func main() {
 	log.Println("Application starting...")
 	runtime.LockOSThread()
-	window := initGlfw()
+	window := initGlfw(windowWidth, windowHeight)
 	defer glfw.Terminate()
 
 	initOpenGL()
 	glslProgram := NewGLSLProgram()
 	vertex := readFile("shaders/vertex.glsl")
 	fragment := readFile("shaders/fragment.glsl")
+	log.Println("Compiling vertex shader...")
 	glslProgram.CompileAndAttachShader(vertex, gl.VERTEX_SHADER)
+	log.Println("Compiling fragment shader...")
 	glslProgram.CompileAndAttachShader(fragment, gl.FRAGMENT_SHADER)
+	log.Println("Now linking shaders...")
 	glslProgram.Link()
 
-	triangle := createTriangle()
-	objects := []drawable{triangle}
+	cube := createCube()
+	objects := []drawable{cube}
 
+	log.Println("Now running...")
 	for !window.ShouldClose() {
 		draw(window, glslProgram, objects)
 	}
@@ -49,7 +53,7 @@ func draw(window *glfw.Window, program GLSLProgram, objects []drawable) {
 	program.Use()
 
 	for _, object := range objects {
-		object.draw()
+		object.draw(program.GetHandle())
 	}
 
 	glfw.PollEvents()

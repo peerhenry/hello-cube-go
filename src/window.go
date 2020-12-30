@@ -3,7 +3,7 @@ package main
 import "github.com/go-gl/glfw/v3.2/glfw"
 
 // initGlfw initializes glfw and returns a window to use
-func initGlfw() *glfw.Window {
+func initGlfw(width, height int) *glfw.Window {
 	if err := glfw.Init(); err != nil {
 		panic(err)
 	}

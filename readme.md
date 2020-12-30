@@ -1,1 +1,2 @@
-Just messing around a bit with GoLang and OpenGL based on: [https://kylewbanks.com/blog/tutorial-opengl-with-golang-part-1-hello-opengl](https://kylewbanks.com/blog/tutorial-opengl-with-golang-part-1-hello-opengl)
+Rendering a 3D cube with OpenGL in Go.
+Shaders are from [https://github.com/daw42/glslcookbook](https://github.com/daw42/glslcookbook)
