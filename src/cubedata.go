@@ -1,7 +1,7 @@
 package main
 
 var (
-	positions = []float32{
+	cubePositions = []float32{
 		-1, -1, -1, // south
 		-1, -1, 1,
 		1, -1, -1,
@@ -35,7 +35,7 @@ var (
 )
 
 var (
-	normals = []float32{
+	cubeNormals = []float32{
 		0, -1, 0, // south normal -y
 		0, -1, 0,
 		0, -1, 0,
@@ -65,7 +65,7 @@ var (
 
 // 36 ints
 var (
-	indices = []uint32{
+	cubeIndices = []uint32{
 		0, 1, 2, 2, 1, 3, // south
 		4, 5, 6, 6, 5, 7, // east
 		8, 9, 10, 10, 9, 11, // north

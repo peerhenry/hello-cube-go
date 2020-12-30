@@ -25,7 +25,7 @@ func (p GLSLProgram) Link() bool {
 }
 
 func (p GLSLProgram) Use() bool {
-	gl.UseProgram(p.GetHandle())
+	gl.UseProgram(p.handle)
 	return true
 }
 
