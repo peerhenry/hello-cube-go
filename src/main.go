@@ -46,6 +46,9 @@ func initOpenGL() {
 	}
 	version := gl.GoStr(gl.GetString(gl.VERSION))
 	log.Println("OpenGL Version", version)
+	gl.Enable(gl.CULL_FACE)
+	gl.CullFace(gl.FRONT)
+	gl.Enable(gl.DEPTH_TEST)
 }
 
 func draw(window *glfw.Window, program GLSLProgram, object *Cube) {
