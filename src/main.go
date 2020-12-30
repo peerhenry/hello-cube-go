@@ -31,11 +31,11 @@ func main() {
 	glslProgram.Link()
 
 	cube := createCube()
-	objects := []drawable{cube}
+	// objects := []Cube{cube}
 
 	log.Println("Now running...")
 	for !window.ShouldClose() {
-		draw(window, glslProgram, objects)
+		draw(window, glslProgram, &cube)
 	}
 	log.Println("Application end")
 }
@@ -48,13 +48,15 @@ func initOpenGL() {
 	log.Println("OpenGL Version", version)
 }
 
-func draw(window *glfw.Window, program GLSLProgram, objects []drawable) {
+func draw(window *glfw.Window, program GLSLProgram, object *Cube) {
 	gl.Clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT)
 	program.Use()
 
-	for _, object := range objects {
-		object.draw(program.GetHandle())
-	}
+	// for _, object := range objects {
+	// 	log.Println("starting with", object.angle)
+	// 	object.draw(program.GetHandle())
+	// }
+	object.draw(program.GetHandle())
 
 	glfw.PollEvents()
 	window.SwapBuffers()

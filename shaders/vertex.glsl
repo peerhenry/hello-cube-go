@@ -5,7 +5,7 @@ layout (location = 1) in vec3 VertexNormal;
 
 out vec3 LightIntensity;
 
-uniform vec4 LightPosition = vec4(1.0,1.0,-10.0,1.0);
+uniform vec4 LightPosition = vec4(3.0,3.0,30.0,1.0);
 uniform vec3 Kd = vec3(1.0);
 uniform vec3 Ld = vec3(1.0);
 // uniform vec4 LightPosition; // Light position in eye coords.
